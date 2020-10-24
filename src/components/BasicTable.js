@@ -8,6 +8,7 @@ import { useTable } from 'react-table';
 
 export default function BasicTable() {
 
+    // const columns = useMemo(() => GROUPED_COLUMNs, []); // demo for header groups
     const columns = useMemo(() => COLUMNS, []);
     const data = useMemo(() => MOCK_DATA, [])
 
