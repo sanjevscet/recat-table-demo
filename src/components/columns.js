@@ -10,6 +10,11 @@ export const COLUMNS = [{
         Header: 'Last Name',
         accessor: 'last_name'
     },
+    // {
+    //     Header: 'Email',
+    //     accessor: 'email'
+    // },
+
     {
         Header: 'Date Of Birth',
         accessor: 'date_of_birth'
