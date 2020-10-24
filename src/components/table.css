@@ -18,10 +18,20 @@ table tr:hover {
     background-color: #ddd;
 }
 
-table th {
+table th,
+tfoot td {
     padding-top: 12px;
     padding-bottom: 12px;
     text-align: left;
     background-color: #4CAF50;
     color: white;
+}
+
+tfoot {
+    position: sticky;
+    bottom: 0;
+}
+
+tfoot td {
+    border: 1px solid #ddd;
 }

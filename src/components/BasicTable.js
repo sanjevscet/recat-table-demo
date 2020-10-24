@@ -13,7 +13,7 @@ export default function BasicTable() {
 
     const tableInstance = useTable({ columns, data });
 
-    const { getTableBodyProps, getTableProps, headerGroups, rows, prepareRow } = tableInstance;
+    const { getTableBodyProps, getTableProps, headerGroups, rows, prepareRow, footerGroups } = tableInstance;
 
     return (
         <table {...getTableProps()}>
@@ -37,16 +37,33 @@ export default function BasicTable() {
             <tbody {...getTableBodyProps()}>
                 {rows.map((row => {
                     prepareRow(row)
-                    return(
+                    return (
                         <tr {...row.getRowProps()}>
                             {row.cells.map(cell => {
                                 return <td {...cell.getCellProps()}>{cell.render('Cell')}</td>
                             })}
-                            </tr>
+                        </tr>
                     )
                 }))}
- 
+
             </tbody>
+
+            <tfoot>
+                {
+                    footerGroups.map(footerGroup => (
+                        <tr {...footerGroup.getFooterGroupProps()}>
+                            {
+                                footerGroup.headers.map(column => (
+                                    <td {...column.getFooterProps}>
+                                        {column.render('Footer')}
+                                    </td>
+                                ))
+                            }
+                        </tr>
+                    ))
+                }
+            </tfoot>
+
         </table>
     )
 }
